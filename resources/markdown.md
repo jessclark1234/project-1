@@ -14,6 +14,8 @@ THEN is able to search past work and a selection of relevant gifs
 
 See images placed in file for reference of wireframing
 
+color scheme will be black background, white text and red accents. Gold possibly too. see image.png
+
 How coders code:
 https://www.youtube.com/watch?v=oJbfMBROEO0&list=PLYfJp46K2UgCJ0IhD84Si7079FzxeF7f-&index=3&t=530s&ab_channel=HealthySoftwareDeveloper
 
