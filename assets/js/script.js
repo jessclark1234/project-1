@@ -12,4 +12,5 @@ function generateAccordion(resultCategory, resultOutput){
 
     baseAccordion.append(headline);
     baseAccordion.append(descriptionText);
-}
+  
+
