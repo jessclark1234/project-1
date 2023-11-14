@@ -1,1 +1,5 @@
-3PETcBI1sQkizCJik9gKuWkHTt3Xojp0
+let APIKEY = '3PETcBI1sQkizCJik9gKuWkHTt3Xojp0'
+
+var name =  ()=> {
+
+}
