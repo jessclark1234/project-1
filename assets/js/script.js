@@ -73,7 +73,7 @@ function sendApiRequest() {
 
 
 var searchBtn = document.getElementById('searchBtn');
-var searchItem = document.getElementbyID('searchBar').value;
+var searchItem = document.getElementbyID('searchBar').value();
 // document.getElementbyID('searchbar').value
 
 function getApi() {
