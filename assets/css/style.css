@@ -1,5 +1,10 @@
 *{
-    /* background-color: black; */
+    background-color: black;
+    color: white;
+}
+
+:root{
+    --accordionHeaderGradient: linear-gradient(#2c0b0b, #5c0b0b);
 }
 
 head{
@@ -8,8 +13,6 @@ head{
 
 header{
     background-color: ;
-    color: white;
-    text-align: center;
 }
 
 body{
@@ -22,5 +25,11 @@ main {
 
 footer{
     background-color: ;
+}
+
+/* css  */
+.ui-accordion-header{
+
+    background-color: var(--accordionHeaderGradient);
 }
 
