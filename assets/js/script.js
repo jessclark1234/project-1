@@ -73,11 +73,13 @@ function sendApiRequest() {
 
 
 var searchBtn = document.getElementById('searchBtn');
-var searchItem = 'sushi';
+var searchBar = document.getElementById('searchBar');
+//var searchItem = searchBar.value();
 // document.getElementbyID('searchbar').value()
 
 function getApi() {
   // fetch request gets a list of all the repos for the node.js organization
+  var searchItem = searchBar.value.trim();
   var requestUrl = 'https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=' + searchItem + '&format=json&explaintext=true&exsectionformat=plain&origin=*';
 ps://api.github.com/orgs/nodejs/repos
   fetch(requestUrl)
@@ -95,6 +97,7 @@ ps://api.github.com/orgs/nodejs/repos
       const firstParagraph = paragraphs[0]
 
       console.log(firstParagraph)
+
 
     });
 }
