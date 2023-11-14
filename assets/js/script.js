@@ -73,8 +73,8 @@ function sendApiRequest() {
 
 
 var searchBtn = document.getElementById('searchBtn');
-var searchItem = document.getElementbyID('searchBar').value;
-// document.getElementbyID('searchbar').value
+var searchItem = 'sushi';
+// document.getElementbyID('searchbar').value()
 
 function getApi() {
   // fetch request gets a list of all the repos for the node.js organization
