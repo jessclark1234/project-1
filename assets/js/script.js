@@ -14,6 +14,11 @@ function generateAccordion(resultCategory, resultOutput){
     baseAccordion.append(descriptionText);
 }
 
+
+
+
+
+
 function sendApiRequest() {
     var userInput = document.getElementById("input").value
     console.log(userInput)
