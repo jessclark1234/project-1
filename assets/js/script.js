@@ -19,14 +19,15 @@ function generateAccordion(resultCategory, resultOutput){
 
 
 
-const userInput = document.getElementById("input")
-userInput.addEventListener('click', sendApiRequest)
+const userInput = document.getElementById("giphyButton");
+userInput.addEventListener('click', sendGiphyApiRequest);
 
-function sendApiRequest() {
-    
-    // console.log(userInput)
-    var giphyApiKey = "3PETcBI1sQkizCJik9gKuWkHTt3Xojp0"
-    var giphyApiUrl = 'https://api.giphy.com/v1/gifs/categories?q=' + userInput + '&rating=g&api_key=' + giphyApiKey
+function sendGiphyApiRequest(event) {
+  event.preventDefault();
+    var giphyText = document.getElementById("giphyInput");
+    var giphySearchBoxText = giphyText.value.trim();
+    var giphyApiKey = "3PETcBI1sQkizCJik9gKuWkHTt3Xojp0";
+    var giphyApiUrl = 'https://api.giphy.com/v1/gifs/search?q=' + giphySearchBoxText + '&rating=g&api_key=' + giphyApiKey;
 
     fetch(giphyApiUrl)
         .then(function (response) {
@@ -34,8 +35,9 @@ function sendApiRequest() {
         })
         .then(function (data){
             console.log(data)
-            for(var i=0; i<data.length; i++){
+            for(var i=0; i<12; i++){
                 document.getElementById().textContent = data.celebrities.gif.original.mp4
+                document.getElementById().textContent = data.cartoons-comics.gif.original.mp4
                 localStorage.setItem()
                 localStorage.getItem()
                 
@@ -51,7 +53,7 @@ var tempDiv = document.getElementById('tempDiv');
 //var searchItem = searchBar.value();
 // document.getElementbyID('searchbar').value()
 
-function getApi() {
+function getWikiApi() {
   // fetch request gets a list of all the repos for the node.js organization
   var searchItem = searchBar.value.trim();
   var requestUrl = 'https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=' + searchItem + '&format=json&explaintext=true&exsectionformat=plain&origin=*';
@@ -77,4 +79,4 @@ ps://api.github.com/orgs/nodejs/repos
     });
 }
 
-searchBtn.addEventListener('click', getApi);
+searchBtn.addEventListener('click', getWikiApi);
