@@ -27,7 +27,8 @@ function sendGiphyApiRequest(event) {
     var giphyText = document.getElementById("giphyInput");
     var giphySearchBoxText = giphyText.value.trim();
     var giphyApiKey = "3PETcBI1sQkizCJik9gKuWkHTt3Xojp0";
-    var giphyApiUrl = 'https://api.giphy.com/v1/gifs/search?q=' + giphySearchBoxText + '&rating=g&api_key=' + giphyApiKey;
+     var giphyApiUrl = 'https://api.giphy.com/v1/gifs/search?q=' + giphySearchBoxText + '&rating=g&api_key=' + giphyApiKey + '&limit=15'; 
+    
 
     fetch(giphyApiUrl)
         .then(function (response) {
@@ -35,16 +36,19 @@ function sendGiphyApiRequest(event) {
         })
         .then(function (data){
             console.log(data)
-            for(var i=0; i<12; i++){
-                document.getElementById().textContent = data.celebrities.gif.original.mp4
-                document.getElementById().textContent = data.cartoons-comics.gif.original.mp4
-                localStorage.setItem()
-                localStorage.getItem()
-                
-            }
-
+            // data[0].images.looping.mp4
+            /* INSERT DISPLAY FUNCTION HERE */
         })
 }
+
+function showGiphyResult (data) {
+  var giphyResult = data;
+  for (var i = 0; i<giphyResult.length; i++) {
+    //data[i].images.looping.mp4
+
+  }
+}
+
 
 
 var searchBtn = document.getElementById('searchBtn');
