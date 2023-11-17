@@ -53,7 +53,7 @@ function showGiphyResult (data) {
 
 var searchBtn = document.getElementById('searchBtn');
 var searchBar = document.getElementById('searchBar');
-var tempDiv = document.getElementById('tempDiv');
+var textP = document.getElementById('textP');
 //var searchItem = searchBar.value();
 // document.getElementbyID('searchbar').value()
 
@@ -77,7 +77,7 @@ ps://api.github.com/orgs/nodejs/repos
       const firstParagraph = paragraphs[0]
 
       console.log(firstParagraph)
-      tempDiv.textContent = firstParagraph
+      textP.textContent = firstParagraph
         
 
     });
