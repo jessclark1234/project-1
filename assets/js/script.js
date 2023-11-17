@@ -18,7 +18,7 @@ function generateAccordion(resultCategory, resultOutput){
 
 
 
-
+var repoList = document.querySelector('ul');
 const userInput = document.getElementById("giphyButton");
 userInput.addEventListener('click', sendGiphyApiRequest);
 
@@ -38,6 +38,12 @@ function sendGiphyApiRequest(event) {
             console.log(data)
             // data[0].images.looping.mp4
             /* INSERT DISPLAY FUNCTION HERE */
+            for (var i =0; i < data.length; i++){
+              var listItem = document.createElement('img');
+              img.setAttribute("imageLayout" , listItem);
+              listItem.textContent = data[i].images.looping.mp4;
+              repoList.appendChild(listItem);
+            }
         })
 }
 
@@ -48,6 +54,11 @@ function showGiphyResult (data) {
 
   }
 }
+// function appendImage (img){
+//   let $div = $('<div id = "imageLayout">');
+//     $('<src id="0" ></src>').append(img).appendTo($div);
+//     $('#thumbs').append($div)
+// }
 
 
 
