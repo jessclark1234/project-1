@@ -18,7 +18,7 @@ function generateAccordion(resultCategory, resultOutput){
 
 
 
-
+var giphyOutput = document.querySelector('ul');
 const userInput = document.getElementById("giphyButton");
 userInput.addEventListener('click', sendGiphyApiRequest);
 
@@ -28,26 +28,28 @@ function sendGiphyApiRequest(event) {
     var giphySearchBoxText = giphyText.value.trim();
     var giphyApiKey = "3PETcBI1sQkizCJik9gKuWkHTt3Xojp0";
      var giphyApiUrl = 'https://api.giphy.com/v1/gifs/search?q=' + giphySearchBoxText + '&rating=g&api_key=' + giphyApiKey + '&limit=15'; 
+     
     
 
-    fetch(giphyApiUrl)
-        .then(function (response) {
-            return response.json()
-        })
-        .then(function (data){
-            console.log(data)
-            // data[0].images.looping.mp4
-            /* INSERT DISPLAY FUNCTION HERE */
-        })
-}
+     fetch(giphyApiUrl)
+     .then(function (response) {
+       return response.json()
+     })
+     .then(function (data) {
+       console.log(data)
+       var gifSection = document.getElementById('giphySection')
+         for (var i = 0; i < 10; i++) {
+           var gifOnPage = document.createElement('img');
+           // var idString = data.data[i].id
+           var idString = data.data[i].images.original.url
+           console.log(idString)
+           var gifSource = "https://media.giphy.com/media/" + idString[i] + "/giphy.gif"
+           gifOnPage.setAttribute('src', idString);
+           gifSection.appendChild(gifOnPage);
+         }
+     })
+ }
 
-function showGiphyResult (data) {
-  var giphyResult = data;
-  for (var i = 0; i<giphyResult.length; i++) {
-    //data[i].images.looping.mp4
-
-  }
-}
 
 
 
