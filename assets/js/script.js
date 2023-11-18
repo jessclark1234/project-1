@@ -12,20 +12,20 @@ var baseAccordion = $('#accordion');
 function generateAccordion(resultCategory, resultOutput) {
   var headline = $('<h3>');
   var descriptionText = $('<div>');
-function generateAccordion(resultCategory, resultOutput) {
-  var headline = $('<h3>');
-  var descriptionText = $('<div>');
+  function generateAccordion(resultCategory, resultOutput) {
+    var headline = $('<h3>');
+    var descriptionText = $('<div>');
 
-  headline.text(resultCategory);
-  descriptionText.text(resultOutput);
-  headline.text(resultCategory);
-  descriptionText.text(resultOutput);
+    headline.text(resultCategory);
+    descriptionText.text(resultOutput);
+    headline.text(resultCategory);
+    descriptionText.text(resultOutput);
 
-  baseAccordion.append(headline);
-  baseAccordion.append(descriptionText);
-  baseAccordion.append(headline);
-  baseAccordion.append(descriptionText);
-}
+    baseAccordion.append(headline);
+    baseAccordion.append(descriptionText);
+    baseAccordion.append(headline);
+    baseAccordion.append(descriptionText);
+  }
 }
 
 
@@ -34,40 +34,40 @@ function generateAccordion(resultCategory, resultOutput) {
 
 // var giphyOutput = document.querySelector('ul');
 
-const userInput = document.getElementById("giphyButton");
-userInput.addEventListener('click', sendGiphyApiRequest);
-// searchBtn.addEventListener('click', sendGiphyApiRequest);
+// const userInput = document.getElementById("giphyButton");
+// userInput.addEventListener('click', sendGiphyApiRequest);
+searchBtn.addEventListener('click', sendGiphyApiRequest);
 
 
 function sendGiphyApiRequest(event) {
   event.preventDefault();
-    var giphyText = document.getElementById("giphyInput");
-    var giphySearchBoxText = giphyText.value.trim();
-    // var giphySearchBoxText = searchBar.value.trim();
-    var giphyApiKey = "3PETcBI1sQkizCJik9gKuWkHTt3Xojp0";
-     var giphyApiUrl = 'https://api.giphy.com/v1/gifs/search?q=' + giphySearchBoxText + '&rating=g&api_key=' + giphyApiKey + '&limit=15'; 
-    
+  // var giphyText = document.getElementById("giphyInput");
+  // var giphySearchBoxText = giphyText.value.trim();
+  var giphySearchBoxText = searchBar.value.trim();
+  var giphyApiKey = "3PETcBI1sQkizCJik9gKuWkHTt3Xojp0";
+  var giphyApiUrl = 'https://api.giphy.com/v1/gifs/search?q=' + giphySearchBoxText + '&rating=g&api_key=' + giphyApiKey + '&limit=15';
 
-     fetch(giphyApiUrl)
-     .then(function (response) {
-       return response.json()
-     })
-     .then(function (data) {
-       console.log(data)
-       var gifSection = document.getElementById('giphySection')
-         for (var i = 0; i < 10; i++) {
-           var gifOnPage = document.createElement('img');
-           // var idString = data.data[i].id
-           var idString = data.data[i].images.original.url
-           console.log(idString)
-           var gifSource = "https://media.giphy.com/media/" + idString[i] + "/giphy.gif"
-           gifOnPage.setAttribute('src', idString);
-           gifSection.appendChild(gifOnPage);
-         }
-     })
- }
 
-  
+  fetch(giphyApiUrl)
+    .then(function (response) {
+      return response.json()
+    })
+    .then(function (data) {
+      console.log(data)
+      var gifSection = document.getElementById('giphySection')
+      for (var i = 0; i < 10; i++) {
+        var gifOnPage = document.createElement('img');
+        // var idString = data.data[i].id
+        var idString = data.data[i].images.original.url
+        console.log(idString)
+        var gifSource = "https://media.giphy.com/media/" + idString[i] + "/giphy.gif"
+        gifOnPage.setAttribute('src', idString);
+        gifSection.appendChild(gifOnPage);
+      }
+    })
+}
+
+
 
 
 
