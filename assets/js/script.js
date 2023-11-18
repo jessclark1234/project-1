@@ -26,20 +26,25 @@ function generateAccordion(resultCategory, resultOutput) {
   baseAccordion.append(headline);
   baseAccordion.append(descriptionText);
 }
-
+var searchBtn = document.getElementById('searchBtn');
+var searchBar = document.getElementById('searchBar');
+var tempDiv = document.getElementById('tempDiv');
 
 
 
 
 var giphyOutput = document.querySelector('ul');
-var giphyOutput = document.querySelector('ul');
-const userInput = document.getElementById("giphyButton");
-userInput.addEventListener('click', sendGiphyApiRequest);
+
+// const userInput = document.getElementById("giphyButton");
+// userInput.addEventListener('click', sendGiphyApiRequest);
+searchBtn.addEventListener('click', sendGiphyApiRequest);
+
 
 function sendGiphyApiRequest(event) {
   event.preventDefault();
-    var giphyText = document.getElementById("giphyInput");
-    var giphySearchBoxText = giphyText.value.trim();
+    // var giphyText = document.getElementById("giphyInput");
+    // var giphySearchBoxText = giphyText.value.trim();
+    var giphySearchBoxText = searchBar.value.trim();
     var giphyApiKey = "3PETcBI1sQkizCJik9gKuWkHTt3Xojp0";
      var giphyApiUrl = 'https://api.giphy.com/v1/gifs/search?q=' + giphySearchBoxText + '&rating=g&api_key=' + giphyApiKey + '&limit=15'; 
     
@@ -84,9 +89,6 @@ function sendGiphyApiRequest(event) {
 
 
 
-var searchBtn = document.getElementById('searchBtn');
-var searchBar = document.getElementById('searchBar');
-var textP = document.getElementById('textP');
 //var searchItem = searchBar.value();
 // document.getElementbyID('searchbar').value()
 
