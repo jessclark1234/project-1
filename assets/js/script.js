@@ -1,32 +1,11 @@
 var searchBtn = document.getElementById('searchBtn');
 var searchBar = document.getElementById('searchBar');
 var tempDiv = document.getElementById('tempDiv');
+var giphySearchTerms;
+var wikiSearchTerms;
 
 
 
-/* Base element needed for the accordion to work. */
-var baseAccordion = $('#accordion');
-
-
-/* Need function to generate accordions for each set of input given. */
-function generateAccordion(resultCategory, resultOutput) {
-  var headline = $('<h3>');
-  var descriptionText = $('<div>');
-  function generateAccordion(resultCategory, resultOutput) {
-    var headline = $('<h3>');
-    var descriptionText = $('<div>');
-
-    headline.text(resultCategory);
-    descriptionText.text(resultOutput);
-    headline.text(resultCategory);
-    descriptionText.text(resultOutput);
-
-    baseAccordion.append(headline);
-    baseAccordion.append(descriptionText);
-    baseAccordion.append(headline);
-    baseAccordion.append(descriptionText);
-  }
-}
 
 
 
@@ -38,14 +17,64 @@ function generateAccordion(resultCategory, resultOutput) {
 // userInput.addEventListener('click', sendGiphyApiRequest);
 searchBtn.addEventListener('click', sendGiphyApiRequest);
 
+function checkInput(){
+  var userEntry = searchBar.value.trim();
+  var wikiFirst;
+  var wikiSecond;
+  var reformString = '';
+
+  giphySearchTerms = userEntry;
+  sendGiphyApiRequest;
+
+  wikiFirst = userEntry.split(" ");
+//There has to be a better way to do this first part, but I'm too brain dead at this point to think of it.
+  if(wikiFirst.length == 1){
+    wikiSecond = wikiFirst[0].split('');
+    for(var x = 0; x < wikiSecond.length; x++ ){
+      if(x == 0){
+        reformString = wikiSecond[x].toUpperCase();
+      }
+      else{
+        reformString = reformString + wikiSecond[x].toLowerCase();
+      }
+    }
+    wikiSearchTerms = reformString;
+    console.log(wikiSearchTerms);
+    getWikiApi;
+  }
+  else{
+    for(var x = 0; x < wikiFirst.length; x++){
+      if (x == 0){
+        wikiSecond = wikiFirst[0].split('');
+        for(var x = 0; x < wikiSecond.length; x++ ){
+          if(x == 0){
+            reformString = wikiSecond[x].toUpperCase();
+          }
+          else{
+            reformString = reformString + wikiSecond[x].toLowerCase();
+          }
+        }
+      }
+      else if( x > 0 && x < wikiFirst.length-1){
+        // STOPPED HERE; NEED TO FINISH; MULTI-PURPOSE BRIDGE FUNCTION -- CS
+      }
+    }
+  }
+
+}
+
+
 
 function sendGiphyApiRequest(event) {
   event.preventDefault();
   // var giphyText = document.getElementById("giphyInput");
   // var giphySearchBoxText = giphyText.value.trim();
-  var giphySearchBoxText = searchBar.value.trim();
+  //var giphySearchBoxText = searchBar.value.trim();
   var giphyApiKey = "3PETcBI1sQkizCJik9gKuWkHTt3Xojp0";
-  var giphyApiUrl = 'https://api.giphy.com/v1/gifs/search?q=' + giphySearchBoxText + '&rating=g&api_key=' + giphyApiKey + '&limit=15';
+ // var giphyApiUrl = 'https://api.giphy.com/v1/gifs/search?q=' + giphySearchBoxText + '&rating=g&api_key=' + giphyApiKey + '&limit=15';
+
+  var giphyApiUrl = 'https://api.giphy.com/v1/gifs/search?q=' + giphySearchTerms + '&rating=g&api_key=' + giphyApiKey + '&limit=15';
+
 
 
   fetch(giphyApiUrl)
