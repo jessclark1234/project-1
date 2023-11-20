@@ -1,8 +1,10 @@
 var searchBtn = document.getElementById('searchBtn');
 var searchBar = document.getElementById('searchBar');
+
 var tempDiv = document.getElementById('tempDiv');
 var giphySearchTerms;
 var wikiSearchTerms;
+
 
 
 

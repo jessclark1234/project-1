@@ -1,39 +1,73 @@
-*{
+* {
     background-color: black;
     color: white;
 }
 
-:root{
+:root {
     --accordionHeaderGradient: linear-gradient(#2c0b0b, #5c0b0b);
 }
 
-head{
-    background-color: black;
+head {
+    font-size: 50px;
 }
 
-header{
-    background-color: black;
+header {
+    font-size: 50px;
 }
 
-body{
-    background-color: black;
+#wikiSection {
+    margin: 30px 0px 0px 10px;
+    text-align: left;
+    font-size: 20px;
 }
+
 
 main {
     background-color: black;
 }
 
-footer{
-    background-color: black;
+footer {
+    font-size: 10px;
+    text-align: center;
 }
 
 /* css  */
-.ui-accordion-header{
-
+.ui-accordion-header {
     background-color: var(--accordionHeaderGradient);
 }
 
-.box{
-  
+.box {
+
 }
 
+#nav {
+    border: 2px solid black;
+    float: inline-start;
+    margin: 12px 12px 12px 45px;
+    padding: 15px;
+    height: 55px;
+    outline-color: black;
+    font-size: 20px;
+}
+
+#nav:focus {
+    outline-color: gold;
+}
+
+#searchBtn {
+    margin: 10px;
+    font-size: 13px;
+    background-color: gold;
+    border: gold 2px solid;
+    cursor: pointer;
+    width: 80px;
+}
+
+#searchBtn:hover {
+    border: black 4px solid;
+    border-radius: 4px;
+}
+
+footer {
+    margin-bottom: 0px;
+}
