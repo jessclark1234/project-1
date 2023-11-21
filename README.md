@@ -2,10 +2,30 @@
 project 1 for bootcamp(collaborative)
 
 ## Description
+This Web Application's purpsose is to search for an item that has gifs and for infomrmation about the search item. It pulls from Wikiapedia's API for the information and Giphy's API for the gifs. 
 
+Github Link:
+https://github.com/jessclark1234/project-1 
+
+Live App Link:
+
+
+![Alt text](image.png)
+This is what the website looks like when at first loaded. ^
+
+![Alt text](image-1.png)
+This is what the site looks like when an item is searched and displayed with the results. ^
 ## Usage
-
+This Web Application's usage is to assist users looking for information about a gif that they are looking for. 
 ## Credits
+Christina Sullivan
+
+Jessica Clark
+
+Martin Castaneda
+
+Sam Gillam
+
 
 ## License
 
