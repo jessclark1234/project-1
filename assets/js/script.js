@@ -106,8 +106,9 @@ function getFavorite(){
 }
 
 function invokeFavorite(){
+  document.getElementById('favorite')
+  favorite.addEventListener('click', setFavorite)
   
-  // this.
 }
 
 
@@ -128,7 +129,6 @@ function sendGiphyApiRequest() {
         gifTest.removeChild(gifTest.firstChild);
       }
     }
-
 
   fetch(giphyApiUrl)
     .then(function (response) {
