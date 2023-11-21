@@ -13,6 +13,7 @@ head {
 
 header {
     font-size: 50px;
+    text-align: center;
 }
 
 #wikiSection {
@@ -88,4 +89,5 @@ footer {
 
 footer {
     margin-bottom: 0px;
+    padding-top: 1000px;
 }
