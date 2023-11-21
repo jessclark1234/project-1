@@ -4,6 +4,7 @@ var searchBar = document.getElementById('nav');
 var tempDiv = document.getElementById('tempDiv');
 var giphySearchTerms;
 var wikiSearchTerms;
+var storage = [];
 
 
 
@@ -85,6 +86,30 @@ function checkInput(){
   console.log(reformString);
 
 }
+
+function setFavorite (){
+  var tempFavArray = [];
+  tempFavArray[0] = wikiSearchTerms;
+  tempFavArray[1] = giphySearchTerms;
+
+  storage.append(tempFavArray);
+  localStorage.setItem('favorites', JSON.stringify(storage));
+
+}
+
+function getFavorite(){
+
+  storage = JSON.parse(localStorage.getItem('favorites'));
+  var favoriteList = document.getElementById('extraButtons');
+  
+
+}
+
+function invokeFavorite(){
+  
+  this.
+}
+
 
 
 
