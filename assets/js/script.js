@@ -106,9 +106,9 @@ function getFavorite(){
 }
 
 function invokeFavorite(){
-  document.getElementById('favorite')
-  favorite.addEventListener('click', setFavorite)
-  
+  document.getElementById('favorite');
+  favorite.addEventListener('click', getFavorite);
+
 }
 
 
