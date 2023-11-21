@@ -14,77 +14,30 @@ var storage = [];
 
 
 
-// var giphyOutput = document.querySelector('ul');
 
-// const userInput = document.getElementById("giphyButton");
-// userInput.addEventListener('click', sendGiphyApiRequest);
-//searchBtn.addEventListener('click', sendGiphyApiRequest);
 searchBtn.addEventListener('click', checkInput);
 
+/* Kindly assisted by Prof. Farish Kashefinejad */
 function checkInput(){
   var userEntry = searchBar.value.trim();
-  var wikiFirst;
-  var wikiSecond;
-  var reformString = '';
+  
 
   giphySearchTerms = userEntry;
   sendGiphyApiRequest();
 
-  wikiFirst = userEntry.split(" ");
-  console.log(wikiFirst);
-//There has to be a better way to do this first part, but I'm too brain dead at this point to think of it.
-  
-  if(wikiFirst.length === 1){
-    console.log("wikiFirst length: " + wikiFirst.length);
-    wikiSecond = wikiFirst[0].split('');
-    for(var x = 0; x < wikiSecond.length; x++ ){
-      if(x == 0){
-        reformString = wikiSecond[x].toUpperCase();
-      }
-      else{
-        reformString = reformString + wikiSecond[x].toLowerCase();
-      }
-    }
-    wikiSearchTerms = reformString;
-    console.log(wikiSearchTerms);
-    getWikiApi;
-  }
-  else{
-    console.log("wikiFirst length: " + wikiFirst.length);
-    for(var x = 0; x < wikiFirst.length; x++){
-      console.log("x is : " + x);
-      if (x == 0){
-        wikiSecond = wikiFirst[0].split('');
-        for(var x = 0; x < wikiSecond.length; x++ ){
-          if(x == 0){
-            reformString = wikiSecond[x].toUpperCase();
-            console.log(reformString);
-          }
-          else{
-            reformString = reformString + wikiSecond[x].toLowerCase();
-            console.log(reformString);
-          }
-        }
-      }
-      else {
-        reformString = reformString + ' ';
-        wikiSecond = wikiFirst[x].split('');
-        for(var x = 0; x < wikiSecond.length; x++ ){
-          if(x == 0){
-            reformString = wikiSecond[x].toUpperCase();
-            console.log(reformString);
-          }
-          else{
-            reformString = reformString + wikiSecond[x].toLowerCase();
-            console.log(reformString);
-          }
-        }
-        console.log(reformString);
-      }
-    }
-  }
-  console.log(reformString);
 
+  var string = "captain america pizza";
+  var words = userEntry.split(' ');
+  var combineWord = '';
+  for(var x = 0; x < words.length; x++) {  
+    var upperWord = words[x][0].toUpperCase() + words[x].substr(1);
+    var correctWord = upperWord[0].toUpperCase() + upperWord[0].substr(1);
+  
+
+    combineWord += upperWord + ' ';
+}
+  wikiSearchTerms = combineWord;
+  getWikiApi();
 }
 
 function setFavorite (){
@@ -105,12 +58,14 @@ function getFavorite(){
 
 }
 
+
 function invokeFavorite(){
   document.getElementById('favorite');
   favorite.addEventListener('click', getFavorite);
 
-}
 
+}
+ */
 
 
 
@@ -158,8 +113,8 @@ function sendGiphyApiRequest() {
 // document.getElementbyID('searchbar').value()
 
 function getWikiApi() {
-  var searchItem = searchBar.value.trim();
-  var requestUrl = 'https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=' + searchItem + '&format=json&explaintext=true&exsectionformat=plain&origin=*';
+  
+  var requestUrl = 'https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=' + wikiSearchTerms + '&format=json&explaintext=true&exsectionformat=plain&origin=*';
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
@@ -177,4 +132,4 @@ function getWikiApi() {
     });
 }
 
-searchBtn.addEventListener('click', getWikiApi);
+//searchBtn.addEventListener('click', getWikiApi);
