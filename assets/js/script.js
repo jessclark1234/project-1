@@ -58,9 +58,12 @@ function getFavorite(){
 
 }
 
-/* function invokeFavorite(){
-  
-  // this.
+
+function invokeFavorite(){
+  document.getElementById('favorite');
+  favorite.addEventListener('click', getFavorite);
+
+
 }
  */
 
@@ -81,7 +84,6 @@ function sendGiphyApiRequest() {
         gifTest.removeChild(gifTest.firstChild);
       }
     }
-
 
   fetch(giphyApiUrl)
     .then(function (response) {

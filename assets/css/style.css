@@ -54,7 +54,7 @@ footer {
     outline-color: gold;
 }
 
-#favorite {
+.favorite {
     content: "\01F90E";
     width: 50px;
     margin: 25px 60px 0px 60px;
@@ -62,16 +62,11 @@ footer {
     height: 40px;
 }
 
-#favorite:hover {
+.favorite:hover {
     content: "\01F49B";
 }
 
-#button2 {
-    width: 50px;
-    margin: 25px 60px 0px 60px;
-    border-radius: 4px;
-    height: 40px;
-}
+
 
 #searchBtn {
     margin: 10px;
