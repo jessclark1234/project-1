@@ -20,6 +20,8 @@ searchBtn.addEventListener('click', checkInput);
 /* Kindly assisted by Prof. Farish Kashefinejad */
 function checkInput(){
   var userEntry = searchBar.value.trim();
+
+  getFavorite;
   
 
   giphySearchTerms = userEntry;
@@ -53,17 +55,27 @@ function setFavorite (){
 function getFavorite(){
 
   storage = JSON.parse(localStorage.getItem('favorites'));
-  var favoriteList = document.getElementById('extraButtons');
+  var favorite1 = document.getElementById('favorite');
+  var favorite2 = document.getElementById('button2');
+
+  if(storage != null){
+    favorite1.setAttribute('text', storage[0][0]);
+    favorite1.setAttribute('data-wiki', storage[0][0]);
+    favorite1.setAttribute('data-giphy', storage[0][1]);
+
+    if(storage[1] != null){
+      favorite2.setAttribute('text', storage[1][0]);
+      favorite1.setAttribute('data-wiki', storage[1][0]);
+      favorite1.setAttribute('data-giphy', storage[1][1]);
+    }
+  }
   
 
 }
 
-
-function invokeFavorite(){
-  document.getElementById('favorite');
-  favorite.addEventListener('click', getFavorite);
-
-
+/* function invokeFavorite(){
+  
+  // this.
 }
  */
 
@@ -84,6 +96,7 @@ function sendGiphyApiRequest() {
         gifTest.removeChild(gifTest.firstChild);
       }
     }
+
 
   fetch(giphyApiUrl)
     .then(function (response) {
