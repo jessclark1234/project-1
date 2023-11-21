@@ -1,5 +1,5 @@
 var searchBtn = document.getElementById('searchBtn');
-var searchBar = document.getElementById('searchBar');
+var searchBar = document.getElementById('nav');
 
 var tempDiv = document.getElementById('tempDiv');
 var giphySearchTerms;
@@ -17,7 +17,8 @@ var wikiSearchTerms;
 
 // const userInput = document.getElementById("giphyButton");
 // userInput.addEventListener('click', sendGiphyApiRequest);
-searchBtn.addEventListener('click', sendGiphyApiRequest);
+//searchBtn.addEventListener('click', sendGiphyApiRequest);
+searchBtn.addEventListener('click', checkInput);
 
 function checkInput(){
   var userEntry = searchBar.value.trim();
@@ -26,11 +27,14 @@ function checkInput(){
   var reformString = '';
 
   giphySearchTerms = userEntry;
-  sendGiphyApiRequest;
+  sendGiphyApiRequest();
 
   wikiFirst = userEntry.split(" ");
+  console.log(wikiFirst);
 //There has to be a better way to do this first part, but I'm too brain dead at this point to think of it.
-  if(wikiFirst.length == 1){
+  
+  if(wikiFirst.length === 1){
+    console.log("wikiFirst length: " + wikiFirst.length);
     wikiSecond = wikiFirst[0].split('');
     for(var x = 0; x < wikiSecond.length; x++ ){
       if(x == 0){
@@ -45,30 +49,47 @@ function checkInput(){
     getWikiApi;
   }
   else{
+    console.log("wikiFirst length: " + wikiFirst.length);
     for(var x = 0; x < wikiFirst.length; x++){
+      console.log("x is : " + x);
       if (x == 0){
         wikiSecond = wikiFirst[0].split('');
         for(var x = 0; x < wikiSecond.length; x++ ){
           if(x == 0){
             reformString = wikiSecond[x].toUpperCase();
+            console.log(reformString);
           }
           else{
             reformString = reformString + wikiSecond[x].toLowerCase();
+            console.log(reformString);
           }
         }
       }
-      else if( x > 0 && x < wikiFirst.length-1){
-        // STOPPED HERE; NEED TO FINISH; MULTI-PURPOSE BRIDGE FUNCTION -- CS
+      else {
+        reformString = reformString + ' ';
+        wikiSecond = wikiFirst[x].split('');
+        for(var x = 0; x < wikiSecond.length; x++ ){
+          if(x == 0){
+            reformString = wikiSecond[x].toUpperCase();
+            console.log(reformString);
+          }
+          else{
+            reformString = reformString + wikiSecond[x].toLowerCase();
+            console.log(reformString);
+          }
+        }
+        console.log(reformString);
       }
     }
   }
+  console.log(reformString);
 
 }
 
 
 
-function sendGiphyApiRequest(event) {
-  event.preventDefault();
+function sendGiphyApiRequest() {
+  //event.preventDefault();
   // var giphyText = document.getElementById("giphyInput");
   // var giphySearchBoxText = giphyText.value.trim();
   //var giphySearchBoxText = searchBar.value.trim();
@@ -76,7 +97,12 @@ function sendGiphyApiRequest(event) {
  // var giphyApiUrl = 'https://api.giphy.com/v1/gifs/search?q=' + giphySearchBoxText + '&rating=g&api_key=' + giphyApiKey + '&limit=15';
 
   var giphyApiUrl = 'https://api.giphy.com/v1/gifs/search?q=' + giphySearchTerms + '&rating=g&api_key=' + giphyApiKey + '&limit=15';
-
+  var gifTest = document.getElementById('giphySection');
+    if(gifTest.hasChildNodes){
+      while (gifTest.firstChild) {
+        gifTest.removeChild(gifTest.firstChild);
+      }
+    }
 
 
   fetch(giphyApiUrl)
