@@ -36,9 +36,7 @@ footer {
     background-color: var(--accordionHeaderGradient);
 }
 
-.box {
-
-}
+.box {}
 
 #nav {
     border: 2px solid black;
@@ -54,9 +52,28 @@ footer {
     outline-color: gold;
 }
 
+#favorite {
+    content: "\01F90E";
+    width: 50px;
+    margin: 25px 60px 0px 60px;
+    border-radius: 4px;
+    height: 40px;
+}
+
+#favorite:hover {
+    content: "\01F49B";
+}
+
+#button2 {
+    width: 50px;
+    margin: 25px 60px 0px 60px;
+    border-radius: 4px;
+    height: 40px;
+}
+
 #searchBtn {
     margin: 10px;
-    font-size: 13px;
+    font-size: 20px;
     background-color: gold;
     border: gold 2px solid;
     cursor: pointer;
