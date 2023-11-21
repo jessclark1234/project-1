@@ -60,6 +60,7 @@ footer {
     margin: 25px 60px 0px 60px;
     border-radius: 4px;
     height: 40px;
+    border-color: white;
 }
 
 .favorite:hover {
