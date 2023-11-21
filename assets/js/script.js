@@ -107,7 +107,7 @@ function getFavorite(){
 
 function invokeFavorite(){
   
-  this.
+  // this.
 }
 
 
